@@ -1,0 +1,67 @@
+
+p.thought {
+    bottom: 3em;
+    right: -1em;
+    position: relative;
+    height: 16em;
+    max-width: 19%;
+    padding: 3em 2em;
+    text-align: center;
+    margin: 10px 10px 80px 40px;
+    background: #00838F;
+    /**give the corners a large curve**/
+    -webkit-border-radius:180px;
+    -moz-border-radius:180px;
+    border-radius:180px;
+    /**add a drop shadow to the bubble**/
+    -webkit-box-shadow: -3px 4px 8px #989898;
+    -moz-box-shadow: -3px 4px 8px #989898;
+    box-shadow: -3px 4px 8px #989898;
+    /**style the text**/
+    color:#ffffff;
+    font-size:1em;
+    letter-spacing:.06em;
+}
+/******NOW CREATE THE THOUGHT CIRCLES*****/
+/****FIRST THE LARGE CIRCLE***/
+p.thought:before {
+    content:"";
+    position:absolute; /*see the support section below for more info*/
+    bottom:-20px; /*distance from the bottom of the bubble*/
+    right:20px; /*distance from the left edge of the bubble*/
+    background:#00838F;
+    width:15px; /*same as the height*/
+    height:15px; /*same as the width*/
+    /*add a curve to the corners the same size as the height and width*/
+    -webkit-border-radius:30px;
+    -moz-border-radius:30px;
+    border-radius:30px;
+    /*add a drop shadow*/
+    -webkit-box-shadow: -3px 3px 4px #989898;
+    -moz-box-shadow: -3px 3px 4px #989898;
+    box-shadow: -3px 3px 8px #989898;
+}
+/*****NOW THE SMALL CIRCLE***/
+/**Created exactly the same way as the large circle, except with smaller width, height and border-radius**/
+p.thought:after {
+    content:"";
+    position:absolute;
+    bottom:-30px;
+    right:8px;
+    width:7px;
+    height:7px;
+    background:#00838F;
+    -webkit-border-radius:15px;
+    -moz-border-radius:15px;
+    border-radius:15px;
+    -webkit-box-shadow: -3px 3px 4px #989898;
+    -moz-box-shadow: -3px 3px 4px #989898;
+    box-shadow: -3px 3px 8px #989898;
+}
+
+@media screen and (max-width: 1280px) {
+    #infoSkolacek {
+        display: none;
+    }
+}
+

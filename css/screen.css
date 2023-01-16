@@ -1,0 +1,331 @@
+/*-
+ * Styl - nastavení hlavních oblastí webu
+ * Formátování grafických prvků
+ * 
+ * @author     Pan Petr
+ * @package    Via Ferata
+ * @copyright  (c) 08/2013, Pan Petr
+ * @change     -, PanPetr
+ *
+-*/
+
+/*- --------------------------------------------------------------------------------------------------------------------
+ *                                                                                                      Celá oblast webu
+ * Nastavení horního odsazení pro horní menu, u rozlišení 992 - 768 se levá část menu posune o jeden řádek dolů
+ * stánka se musí o toto odsadit
+ -*/
+body {
+  padding-top: 0px;
+}
+
+h1{font-size: 16px; font-weight: bold; display: inline-block;}
+
+thead{font-size: 11px; font-weight: bold;}
+
+/*- pokud je rozlišení mezi 992 až 768 -*/
+@media screen and (min-width: 768px) {
+    body {
+        padding-top: 50px;
+    }
+    h1{font-size: 20px;}
+    form.navbar-form .form-group { /*- inputy pro přihlašování do e-shopu -*/
+        width: 80px;
+    }
+}
+/*- pokud je rozlišení větší než 992 -*/
+@media screen and (min-width: 992px) {
+    body {
+        padding-top: 50px;
+    }
+    h1{font-size: 30px;}
+    form.navbar-form .form-group { /*- inputy pro přihlašování do e-shopu -*/
+        width: 80px;
+    } 
+}
+
+footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.jumbotron.loga {
+    padding: 20px;
+}
+.jumbotron.loga img {
+    margin-top: 5px;
+}
+.jumbotron.loga a {
+    text-decoration: none;
+}
+/*- ................................................................................................................ -*/
+
+
+
+/*- --------------------------------------------------------------------------------------------------------------------
+ *                                                                                                        Zápatí stránky
+ * Oddělená část obsahu v dolní části všech stránek.
+ * 
+ -*/
+.bs-footer {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  /*-margin-top: 50px;-*/
+  color: #777;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
+.footer-links {
+  margin: 10px 0;
+  padding-left: 0;
+}
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
+@media (min-width: 768px) {
+  .bs-footer {
+    text-align: left;
+  }
+  .bs-footer p {
+    margin-bottom: 0;
+  }
+}
+/*- ................................................................................................................ -*/
+
+
+/*- --------------------------------------------------------------------------------------------------------------------
+ *                                                                                              Tlačítka sociálních sítí
+ * Nastylování tlačítek sociálních sítí v zápatí stránky
+ * 
+ -*/
+.bs-social {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.bs-social-buttons {
+  display: inline-block;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.bs-social-buttons li {
+  display: inline-block;
+  line-height: 1;
+  padding: 5px 8px;
+}
+.bs-social-buttons .twitter-follow-button {
+  width: 225px !important;
+}
+.bs-social-buttons .twitter-share-button {
+  width: 98px !important;
+}
+/* Style the GitHub buttons via CSS instead of inline attributes */
+.github-btn {
+  border: 0;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .bs-social {
+    text-align: left;
+  }
+  .bs-social-buttons li:first-child {
+    padding-left: 0;
+  }
+}
+/*- ................................................................................................................ -*/
+
+
+
+/*- --------------------------------------------------------------------------------------------------------------------
+ *                                                                                         Záhlaví stránky webu pod menu
+ * Informační pás v záhlaví webu pro zobrazování hlavních informací
+ * 
+ -*/
+.bs-docs-home, /*- barva podkladu a písma -*/
+.bs-header {
+  color: #ff9933;
+  background-color: #C81313;
+  background-image: url('../images/top_bg.png');
+  
+  /*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAPoAgMAAAAwzTx3AAAACVBMVEVXPX1dQ4FdR);*/
+}
+
+.bs-header {
+  padding: 30px 25px 40px; /* side padding builds on .container 15px, so 30px */
+  font-size: 16px;
+  text-align: center;
+  text-shadow: 0 3px 0 rgba(0,0,0,.15);
+}
+.bs-header h1 {
+  color: #fff;
+}
+.bs-header p {
+  font-weight: 300;
+  line-height: 1.5;
+}
+.bs-header .container {
+  position: relative;
+}
+
+/*- pokud je rozlišení mezi 992 až 768 -*/
+@media screen and (min-width: 768px) {
+  .bs-header {
+    font-size: 21px;
+    text-align: left;
+    /*-padding-top: 100px;-*/
+  }
+  .bs-header h1 {
+    font-size: 60px;
+    line-height: 1;
+  }
+}
+/*- pokud je rozlišení větší než 992 -*/
+@media screen and (min-width: 992px) {
+  .bs-header h1,
+  .bs-header p {
+    margin-right: 380px;
+  }
+}
+/*- ................................................................................................................ -*/
+
+
+
+/*- --------------------------------------------------------------------------------------------------------------------
+ *                                                                                      Informační okénko v záhlaví webu
+ * Zobrazí okénko do kterého se budou postupně načítat informační stránky (možno využít pro reklamu)
+ * Důležité "!important" je nutné převzít předem nastavené vlastnosti.
+ -*/
+.carbonad {
+  width: auto !important;
+  margin: 50px -30px -40px !important;
+  padding: 20px !important;
+  overflow: hidden; /* clearfix */
+  height: auto !important;
+  font-size: 13px !important;
+  line-height: 16px !important;
+  text-align: left;
+  background: #F62C2C !important;
+  border: 0 !important;
+  box-shadow: inset 0 3px 5px rgba(0,0,0,.075);
+}
+.carbonad-img {
+  margin: 0 !important;
+}
+.carbonad-text,
+.carbonad-tag {
+  float: none !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  margin-left: 145px !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+.carbonad-text {
+  padding-top: 0 !important;
+}
+.carbonad-tag {
+  color: #cdbfe3 !important;
+  text-align: left !important;
+}
+.carbonad-text a,
+.carbonad-tag a {
+  color: #fff !important;
+}
+.carbonad #azcarbon > img {
+  display: none; /* hide what I assume are tracking images */
+}
+
+/*- pokud je rozlišení mezi 992 až 768 -*/
+@media screen and (min-width: 768px) {
+  .carbonad {
+    margin: 0 !important;
+    border-radius: 4px;
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.075), 0 1px 0 rgba(255,255,255,.1);
+    min-height: 132px;
+    width: 330px !important;
+  }
+}
+/*- pokud je rozlišení větší než 992 -*/
+@media screen and (min-width: 992px) {
+  .carbonad {
+    position: absolute;
+    top: 20px;
+    right: 18px;
+    padding: 15px !important;
+    width: 330px !important;
+    min-height: 132px;
+  }
+}
+/*- ................................................................................................................ -*/
+
+
+/*- --------------------------------------------------------------------------------------------------------------------
+ *                                                                         Nastavení celé oblasti web stránky pro mobily     
+ * Schování hlavních ovládacích prvků u mobilů vlevo, po kliknutí na tlačítko data-toggle="offcanvas"
+ * se posune zobrazení a zobrazí se hlavní menu
+ -*/
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .row-offcanvas-right 
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}/*- ............................................................................................................... -*/
+
+
+/*- ................................................................................................................ -*/
+/*- ............................................................................................... E N D  S T Y L E -*/
+
+#ajax-spinner {
+	margin: 15px 0 0 15px;
+	padding: 13px;
+	background: white url('../images/spinner.gif') no-repeat 50% 50%;
+	font-size: 0;
+	z-index: 123456;
+	display: none;
+}
+
+div.flash {
+	color: black;
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	padding: 1em;
+	margin: 1em 0;
+}
+
+a[href^="error:"] {
+	background: red;
+	color: white;
+}
+
