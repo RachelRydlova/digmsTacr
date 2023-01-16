@@ -1,0 +1,45 @@
+{*
+Zobrazeni prehledu nomenklatur
+*}
+
+ {if $nomens}
+     {var $cenaZak = (isSet(current($nomens)->cenaZak))?TRUE:FALSE}
+    <div class="table">
+        <table class="table table-hover table-striped table-bordered table-condensed">
+        <thead>
+            <tr class="active">
+                <td>Nomenklatura | Název</td>
+                <td>Disp. stav</td>
+                {if $cenaZak}<td>Cena zák.</td>{/if}
+                <td>Cena MOC</td>
+            </tr>
+        </thead>
+        <tbody data-link="row" class="rowlink" >
+
+        {foreach $nomens as $row}
+            {if $cenaZak} {*pokud je zakaznicka cena a je cislo, tak se zobrazi, jinak se neresi a ani se negeruje bunka*}
+                {if (is_numeric($row->cenaZak))}{var $cenaZak = \A2bFunc\Helpers::cislo($row->cenaZak,1)} 
+                {else}                          {var $cenaZak = $row->cenaZak} 
+                {/if}
+                {var $tdStr = '<td>'.$cenaZak.'</td>' }
+             {else}   
+                {var $tdStr = ''} 
+            {/if}
+            
+            <tr {if ($row->disp_stav < 1) } class="danger" {/if}>
+                <td>
+                    <a href="{plink Price:NomenDetail trim($row->KARTA) }">{$row->KARTA} | {$row->NAZEV}</a>
+                </td>
+                <td>{$row->disp_stav|cislo:0}</td>
+                {$tdStr|noEscape}
+                <td>{$row->CENA|cislo:1}</td>
+                
+            </tr>
+        {/foreach}
+    </tbody>
+    </table>
+    </div>
+        {if count($nomens)>49}<pre><span style="color: red"> Upřesněte dotaz, zobrazeno prvních 50 záznamů odpovídajících zadání.</span></pre>{/if}    
+{elseif ($nomenNeedle)}
+    <pre>Nenalezena žádná nomenklatura pro {$nomenNeedle}.</pre>
+{/if} {*endif nomens*}

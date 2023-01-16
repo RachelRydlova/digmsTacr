@@ -1,0 +1,35 @@
+{*
+Zobrazeni prehledu nomenklatur
+*}
+{var $checkbox = \Nette\Utils\Html::el('input')->type('checkbox')->addAttributes(array('disabled'=>'disabled'))}
+{if ($partners)}
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-condensed">
+            <thead>
+                <tr class="active">
+                <td>ID</td>
+                <td>IČO</td>
+                <td>Název</td>
+                <td>Ulice</td>
+                <td class="hidden-xs hidden-sm">Město</td>
+                <td>Fakt.</td>
+                </tr>
+            </thead>
+            <tbody data-link="row" class="rowlink">
+            {foreach $partners as $row}
+                <tr>
+                    <td><a href={plink selectPartner! $row->id_partnera}>{$row->id_partnera}</a></td>
+                    <td>{$row->ico}</td>
+                    <td>{$row->nazev}</td>
+                    <td>{$row->ulice}</td>
+                    <td class="hidden-xs hidden-sm">{$row->obec}</td>
+                    <td>{var $checkbox->checked = ($row->id_fakturacni!='' AND $row->id_fakturacni!=$row->id_partnera)?FALSE:TRUE}
+                        {!$checkbox->render()}
+                    </td>
+                </tr>
+            {/foreach}
+        </tbody>
+        </table>
+        </div>
+        <pre>Celkem {count($partners)} partnerů odpovídá zadání.</pre>
+{/if}        

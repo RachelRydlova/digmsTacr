@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Informace z portálu</title>
+    <style>
+        div.content {
+            font-size: 15px;
+            color: #FFF9D7;
+            background: #2b81af;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <p> Dobrý den, <br>
+    z evaluační aplikace Vaší MŠ Vám byl zaslán přístupový klíč potřebný k registraci
+        zákonného zástupce dítěte do této aplikace.</p>
+
+    <p style="margin: 15px 0; border: 1px dotted #e1e4e9; padding:10px;"><b>Jméno dítěte: </b> {$dite} <br>
+       <b>Přístupový klíč:</b> {$key}</p>
+
+    <p>Vytvořit Vaši registraci a získat tak přístup k vzdělávacím materiálům můžete na
+        <a style="color:#cdbfe3;" href="{$link}">odkazu</a> v části <b>Přihlášení</b>.</p>
+    <p>Přejeme hezký den...</p>
+</div>
+
+<hr>
+<small>Tato zpráva je zaslána z portálu: <a href="{$link}">{$link}</a></small>
+
+</body>
+</html>

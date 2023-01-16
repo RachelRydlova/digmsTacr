@@ -1,0 +1,19 @@
+{**
+ * Error - template zobrazení chybové stránky
+ * @author     Ondra310
+ * @package    vapolDPrice
+ * @copyright (c) 11/2012, Ondra310
+ *
+ * @param boolean $robots - zakážu indexování roboty
+ *}
+
+{var $robots = false}
+
+{block #content}
+
+<h1>{_"*Jejda..."}</h1>
+
+<p>{_"*Váš prohlížeč zaslal požadavek, kterému server nerozumí a nedokáže jej zpracovat."} 
+    {_"*Zkuste opakovat požadavek znovu."}</p>
+
+<p><small>{_"*chyba"} 4xx</small></p>

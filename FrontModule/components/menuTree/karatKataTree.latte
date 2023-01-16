@@ -1,0 +1,71 @@
+{**
+ *  c_MenuTree - Stromové menu
+    Struktura stromového menu
+    Pro zobrazení menu je použitá knihovna jQuery.
+ *
+ * @author     Ondra310 & ondra310
+ * @package    vapolDPrice
+ * @copyright (c) 05/2012, Ondra310
+ *
+ * @param int $poradi - Pořadí položky v menu - pomocná proměnná
+ * @param int $delkaNazvu - Maximální délka položky - je potřeba načíst z konfigurace
+ * @param array $tree - pole s položkami stromu
+ * 
+<li><span class="file">File 4</span></li> - pokud chci zobrazit ikonku souboru
+<li class="closed"><span class="folder">Folder 3 (closed at start)</span> - closed -> defaultně zavřená, folder -> ikonka složky
+ *}
+{var $poradi     = 0} {* Pořadí položky v menu - pomocná proměnná*}
+{var $delkaNazvu = 34}{* Maximální délka položky *}
+{var $prefix     = "frmkaratTreeForm"}
+{var $formName   = "karatTreeForm"}
+
+
+<div id="treeKaratDialog" style="background:#fff; padding:10px; display:none" title="Vyberte kategorii pro synchronizaci:">
+
+    {*control karatTreeForm *}
+
+{form karatTreeForm}   
+    <div id="treecontrolK" class="treecontrol">
+        <div class="closedAll" style="height:10px;width:10px;float:left;padding:2px"></div>
+        <a title="Uzavře celý strom" href="#"> Uzavřít vše</a>
+    </div>    
+    <hr />
+{block #menu|strip}  {* block #menu|strip / menu pouze pro produkty *}
+    {if is_array($tree)}
+    <ul{$poradi == 0? ' class="menuStromK filetree"'}>
+   
+    {foreach $tree as $url => $name}
+      {continueIf $iterator->first} {* prejdu na další prvek pokud jsem v podmenu, první prvek je název hlavní kategorie *}   
+      {if is_array($name)}
+        {var $title = ''}
+        <li class="closed">   
+            {var $name1 = $template->translate(current($name))}
+            {if strlen($name1) > $delkaNazvu} 
+                {? $title = " title='".$name1."'"}
+                {? $name1 = $template->truncate($name1, $delkaNazvu)}
+            {/if}
+            <span class="folder"{!$title}>
+            <input type="checkbox"{!$title} name="{$control[$formName][$url]->htmlName}" id="{$prefix}-{$url}"{isSet($tecCheck[$url])?' checked="checked"'}/>
+            <label for="{$prefix}-{$url}">{$name1}</label></span>
+            {include #menu, tree => $name, poradi => $iterator->getCounter()-1}
+      {else}
+        <li>     
+            {var $name1 = $template->translate($name)}     
+            {if strlen($name1) > $delkaNazvu} 
+                {? $title = " title='".$name1."'"}
+                {? $name1 = $template->truncate($name1, $delkaNazvu)}
+            {else}
+                {? $title = ''}
+            {/if}
+            <input type="checkbox" {!$title} name="{$control[$formName][$url]->htmlName}" id="{$prefix}-{$url}" {isSet($tecCheck[$url])?' checked="checked"'}/>
+            <label for="{$prefix}-{$url}">{$name1}</label>
+      {/if}
+        </li>
+    {/foreach}
+
+    </ul>
+    {/if}
+{/block}
+   
+{/form}     
+</div><!-- END menu strom -->        

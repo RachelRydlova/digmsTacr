@@ -1,0 +1,19 @@
+{**
+ * Error - template zobrazení chybové stránky
+ * @author     Ondra310
+ * @package    vapolDPrice
+ * @copyright (c) 11/2012, Ondra310
+ *
+ * @param boolean $robots - zakážu indexování roboty
+ *}
+
+{var $robots = false}
+
+{block #content}
+
+<h1>{_"*Přístup zamítnut"}</h1>
+
+<p>{_"*Nemáte oprávnění k zobrazení této stránky."} {_"*Prosím, zkuste kontaktovat
+Správce webu, pokud si myslíte, že byste měli být schopni zobrazit tuto stránku."}</p>
+
+<p><small>{_"*chyba"} 403</small></p>

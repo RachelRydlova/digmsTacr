@@ -1,0 +1,1156 @@
+{*{layout $pageLayout}*}
+
+{block head}
+{*    <link href="/old-assets/demo/demo4/base/home.css" rel="stylesheet" type="text/css" />*}
+{/block}
+
+{block pagetitle}
+    Evaluační aplikace
+    <small>projektu podpory TAČR</small>
+{/block}
+
+
+{block edaText}Ahoj, já jsem Eda a provedu tě touto aplikací.{/block}
+
+
+{block content}
+    <main class="container-wrap">
+        <!-- ##### BANNER #####-->
+        <section id="banner">
+            <div class="banner-slider">
+                <div class="banner-wrap">
+                    <div class="bg-deco" style="height: 830px"></div>
+                    <div class="container small-deco" style="width: 70%">
+                        <div style="right: -3%"></div>
+                    </div>
+                    <div class="carousel">
+                        <div class="slider" id="banner_slider">
+                            <div class="slide" id="slide1">
+                                <div class="inner" style="height: 130%">
+{*                                    <div class="img background-banner">*}
+{*                                        <img class="img-2d3d" src="{$basePath}/assets/images/education/background_3d@2x.png" data-2d="./assets" data-3d="{$basePath}/assets/images/education/background_3d@2x.png" alt="background" />*}
+{*                                    </div>*}
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-6 px-sm-4 px-0 d-flex align-center">
+                                                <div class="text">
+                                                    <div class="title title-left">
+                                                        <h4 class="use-text-title">Jak používat webové stránky</h4>
+                                                    </div>
+                                                    <h5 class="use-text-subtitle">Nejprve je nutné se zaregistrovat a přihlásit.</h5>
+                                                    {if $user->isLoggedIn()}
+                                                        <div class="btn-area">
+                                                            <a class="btn-flat waves-effect btn-large button primary-text" n:href=":Ev:Dashboard:manager">zobrazit školky</a>
+                                                            {if $user->isInRole('admin')}
+                                                                <a class="btn waves-effect button btn-large primary" n:href=":Admin:Person:manageSchool">nová školka</a>
+                                                            {/if}
+                                                        </div>
+                                                    {/if}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 px-6">
+                                                <div class="img">
+                                                    <img class="img-2d3d img-slide1" src="{$basePath}/assets/images/skolacek/edigup-skolacek-eda-kniha.png" data-2d="./assets" data-3d="{$basePath}/assets/images/skolacek/edigup-skolacek-eda-kniha.png" alt="skolacek eda z edigUP" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide" id="slide2">
+                                <div class="inner">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-7 col-lg-6 px-sm-4 px-0 d-flex align-items-center order-md-last">
+                                                <div class="text">
+                                                    <h4 class="use-text-title">Výběr školy / dítěte / žáka</h4>
+                                                    <h5 class="use-text-subtitle"> Zvolte mateřskou školu z Vašeho seznamu a poté konkrétní dítě.</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 col-lg-6 order-md-first">
+                                                <div class="img">
+                                                    <img class="img-2d3d img-slide1" src="./assets/images/skolacek/edigup-skolacek-eda-mrk.png" data-2d="./assets" data-3d="./assets/images/skolacek/edigup-skolacek-eda-mrk.png" alt="skolacek eda z edigUP" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide center-content" id="slide3">
+                                <div class="inner">
+                                    <div class="container">
+                                        <div class="row justify-content-end">
+                                            <div class="col-12 px-lg-12 px-0">
+                                                <div class="text text-center">
+                                                    <div class="title-wrap">
+                                                        <div class="title title-center">
+                                                            <h4 class="use-text-title">Znalosti dítěte</h4>
+                                                        </div>
+                                                    </div>
+                                                    <h5 class="use-text-subtitle">Po zvolení konkrétního dítěte se zobrazí profil, kde naleznete veškeré informace a pokroky daného žáka.</h5>
+                                                </div>
+                                            </div>
+                                            <!--                              <div class="col-12">-->
+                                            <!--                                <div class="img h-banner">-->
+                                            <!--                                  <img class="img-2d3d" src="./assets/images/skolacek/edigup-skolacek-eda-beh.png" data-2d="./assets" data-3d="./assets/images/skolacek/edigup-skolacek-eda-beh.png" alt="skolacek eda a jeho dovednosti" />-->
+                                            <!--                                </div>-->
+                                            <!--                              </div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden-sm-down">
+                        <div class="container max-md">
+                            <nav class="slide-nav" id="banner_nav">
+                                <a class="waves-effect active" data-slide="0"><strong>1. krok</strong>Vyberte mateřskou školu</a>
+                                <hr class="divider">
+                                <a class="waves-effect" data-slide="1"><strong>2. krok</strong>Vyberte dítě</a>
+                                <hr class="divider">
+                                <a class="waves-effect" data-slide="2"><strong>3. krok</strong>Zadejte úroveň dovedností</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- ##### END BANNER #####-->
+
+        <!-- ##### FEATURE #####-->
+        <!--
+        <section class="space-top space-top-short-sm" id="feature">
+          <div class="root">
+            <div class="container max-md">
+              <div class="title-main align-center">
+                <h4 class="primary"><span>O nás</span></h4>
+                <p class="desc use-text-subtitle2">The world's largest selection of courses</p>
+              </div>
+              <div class="row spacing8 grid">
+                <div class="col-sm-6 px-6 py-3">
+                  <div class="counter-item">
+                    <figure>
+                      <img class="img-2d3d img-2d3d" src="./assets/images/education/feature1_3d@2x.png" data-2d="./assets" data-3d="./assets/images/education/feature1_3d@2x.png" alt="feature" />
+                    </figure>
+                    <div class="text">
+                      <h4 class="use-text-title">
+
+                        +<span class="numscroller" data-min="0" data-max="100" data-delay="5" data-increment="4">&nbsp;</span>K
+
+                      </h4>
+                      <h6 class="use-text-subtitle2">HD Videos</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 px-6 py-3">
+                  <div class="counter-item">
+                    <figure>
+                      <img class="img-2d3d img-2d3d" src="./assets/images/education/feature2_3d@2x.png" data-2d="./assets" data-3d="./assets/images/education/feature2_3d@2x.png" alt="feature" />
+                    </figure>
+                    <div class="text">
+                      <h4 class="use-text-title">
+                        +<span class="numscroller" data-min="0" data-max="200" data-delay="5" data-increment="10">&nbsp;</span>
+                      </h4>
+                      <h6 class="use-text-subtitle2">Professional Mentors</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 px-6 py-3">
+                  <div class="counter-item">
+                    <figure>
+                      <img class="img-2d3d img-2d3d" src="./assets/images/education/feature3_3d@2x.png" data-2d="./assets" data-3d="./assets/images/education/feature3_3d@2x.png" alt="feature" />
+                    </figure>
+                    <div class="text">
+                      <h4 class="use-text-title">
+                        $<span class="numscroller" data-min="0" data-max="500" data-delay="5" data-increment="20">&nbsp;</span>
+                      </h4>
+                      <h6 class="use-text-subtitle2">Saves per Month</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 px-6 py-3">
+                  <div class="counter-item">
+                    <figure>
+                      <img class="img-2d3d img-2d3d" src="./assets/images/education/feature4_3d@2x.png" data-2d="./assets" data-3d="./assets/images/education/feature4_3d@2x.png" alt="feature" />
+                    </figure>
+                    <div class="text">
+                      <h4 class="use-text-title">Free</h4>
+                      <h6 class="use-text-subtitle2">Life Time Access</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        -->
+        <!-- ##### END FEATURE #####-->
+
+        <!-- ##### POPULAR #####--> <!--
+                <section class="space-top-short" id="popular">
+                  <div class="root">
+                    <div class="container carousel-header">
+                      <div class="title-main align-left">
+                        <h4 class="secondary"><span>Popular Course</span></h4>
+                        <p class="desc use-text-subtitle2">Choose from many options of popular course at a breakthrough price.</p>
+                      </div>
+                      <a class="btn-flat waves-effect primary-text view-all" href="products.html">see all<i class="material-icons icon">arrow_forward</i></a>
+                    </div>
+                    <div class="container">
+                      <div class="floating-artwork">
+                        <div class="slider-art">
+                          <div class="deco">
+                            <div class="figure show-md-up" id="art_course">
+                              <div class="wow fadeInRightShort" data-wow-offset="60" data-wow-delay="0.3s" data-wow-duration="0.5s">
+                                <img class="img-2d3d img-2d3d" src="./assets/images/education/popular_3d@2x.png" data-2d="./assets" data-3d="./assets/images/education/popular_3d@2x.png" alt="popular course" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="slider-wrap">
+                      <div class="carousel">
+                        <div class="slick-carousel" id="course_carousel" data-length="6">
+                          <div class="props item-props-first">
+                            <div></div>
+                          </div>
+                          <div class="item">
+                            <div class="card product-card portrait round">
+                              <a class="waves-effect hidden-link" href="product-detail.html">&nbsp;</a>
+                              <div class="figure">
+                                <div class="responsive-img" style="background-image:url(https://via.placeholder.com/270x320/189a96/FFFFFF);"></div>
+                              </div>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Instant Kendo UI Mobile</h6>
+                                  <p class="use-text-paragraph">Filled with practical, step-by-step instructions and clear explanations for the most important and useful tasks.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block waves-effect" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <div class="card product-card portrait round">
+                              <a class="waves-effect hidden-link" href="product-detail.html">&nbsp;</a>
+                              <div class="figure">
+                                <div class="responsive-img" style="background-image:url(https://via.placeholder.com/270x320/189a96/FFFFFF);"></div>
+                              </div>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Joy of Cooking</h6>
+                                  <p class="use-text-paragraph">The famously irreverent chef also offers playful riffs on classics, reimagining tuna-and-rice bowls.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon-disable" title="1">star</i></div><strong>$10</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block waves-effect" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <div class="card product-card portrait round">
+                              <a class="waves-effect hidden-link" href="product-detail.html">&nbsp;</a>
+                              <div class="figure">
+                                <div class="responsive-img" style="background-image:url(https://via.placeholder.com/270x320/189a96/FFFFFF);"></div>
+                              </div>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Face the Music: A Life Exposed</h6>
+                                  <p class="use-text-paragraph">Face the Music is the shocking inspirational story of one of rock’s most enduring icons.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block waves-effect" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <div class="card product-card portrait round">
+                              <a class="waves-effect hidden-link" href="product-detail.html">&nbsp;</a>
+                              <div class="figure">
+                                <div class="responsive-img" style="background-image:url(https://via.placeholder.com/270x320/189a96/FFFFFF);"></div>
+                              </div>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Metaverse For Beginners</h6>
+                                  <p class="use-text-paragraph">When people talk about the future, they usually mean virtual reality.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon-disable" title="1">star</i><i class="material-icons star-icon-disable" title="2">star</i></div><strong>$25</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block waves-effect" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <div class="card product-card portrait round">
+                              <a class="waves-effect hidden-link" href="product-detail.html">&nbsp;</a>
+                              <div class="figure">
+                                <div class="responsive-img" style="background-image:url(https://via.placeholder.com/270x320/189a96/FFFFFF);"></div>
+                              </div>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Practical Ethics in Sport Management</h6>
+                                  <p class="use-text-paragraph">Leaders and managers throughout the sporting world face many ethical challenges on a daily basis.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block waves-effect" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <div class="card product-card portrait round">
+                              <a class="waves-effect hidden-link" href="product-detail.html">&nbsp;</a>
+                              <div class="figure">
+                                <div class="responsive-img" style="background-image:url(https://via.placeholder.com/270x320/189a96/FFFFFF);"></div>
+                              </div>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Economic Geography: Past, Present and Future</h6>
+                                  <p class="use-text-paragraph">The impact of economic geography both within the field of geography.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$40</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block waves-effect" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="btn-floating nav prev waves-effect" id="prev_project" type="button">
+                          <i class="ion-ios-arrow-back"></i>
+                        </button>
+                        <button class="btn-floating nav next waves-effect" id="next_project" type="button">
+                          <i class="ion-ios-arrow-forward"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+               --> <!-- ##### END POPULAR #####-->
+
+        <!-- ##### EXPLORE #####--> <!--
+                <section id="explore">
+                  <div class="root">
+                    <div class="container">
+                      <div class="px-lg-6">
+                        <div class="px-8 px-lg-0">
+                          <div class="title-main align-left">
+                            <h4 class="primary"><span>Explore Course</span></h4>
+                            <p class="desc use-text-subtitle2">Choose from 100,000 online video courses with new additions published every month.</p>
+                          </div>
+                        </div>
+                        <div class="rack" id="cat1">
+                          <div class="category-title">
+                            <h3><i class="material-icons small">palette</i>&nbsp; Lorem Ipsum</h3>
+                            <a class="btn-flat waves-effect primary-text view-all" href="products.html">see all<i class="material-icons icon">arrow_forward</i></a>
+                          </div>
+                          <div class="content">
+                            <div class="book collapsed" style="border: 2px solid #f74e10">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #f74e10">
+                                  <span>Interiors Beyond Architecture</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Interiors Beyond Architecture</h6>
+                                  <p class="use-text-paragraph">The overall premise of the book is to learn Revit Architecture while developing the interior of a two story law office</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #c7618c">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #c7618c">
+                                  <span>Modern Art</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Modern Art</h6>
+                                  <p class="use-text-paragraph">The works stand out for being an intellectual painter in the creation of the pictorial work from scratch</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon-disable" title="1">star</i></div><strong>$10</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #e59546">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #e59546">
+                                  <span>Joy of Cooking</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Joy of Cooking</h6>
+                                  <p class="use-text-paragraph">The famously irreverent chef also offers playful riffs on classics, reimagining tuna-and-rice bowls.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book expanded" style="border: 2px solid #8f46e5">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #8f46e5">
+                                  <span>Metaverse For Beginners</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Metaverse For Beginners</h6>
+                                  <p class="use-text-paragraph">When people talk about the future, they usually mean virtual reality.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon-disable" title="1">star</i><i class="material-icons star-icon-disable" title="2">star</i></div><strong>$25</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #ac8a55">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #ac8a55">
+                                  <span>Face the Music</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Face the Music</h6>
+                                  <p class="use-text-paragraph">Face the Music is the shocking inspirational story of one of rock’s most enduring icons.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #274be3">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #274be3">
+                                  <span>Key Concepts in Geography</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Key Concepts in Geography</h6>
+                                  <p class="use-text-paragraph">This book clearly outlines key concepts that all geographers should readily be able to explain</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$40</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #6DB4A7">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #6DB4A7">
+                                  <span>On Photography</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">On Photography</h6>
+                                  <p class="use-text-paragraph">Photographs are everywhere and it has profoundly altered our relationship with the world.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="rack" id="cat2">
+                          <div class="category-title">
+                            <h3><i class="material-icons small">brightness_low</i>&nbsp; Lorem Ipsum</h3>
+                            <a class="btn-flat waves-effect primary-text view-all" href="products.html">see all<i class="material-icons icon">arrow_forward</i></a>
+                          </div>
+                          <div class="content">
+                            <div class="book collapsed" style="border: 2px solid #f74e10">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #f74e10">
+                                  <span>Interiors Beyond Architecture</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Interiors Beyond Architecture</h6>
+                                  <p class="use-text-paragraph">The overall premise of the book is to learn Revit Architecture while developing the interior of a two story law office</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #c7618c">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #c7618c">
+                                  <span>Modern Art</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Modern Art</h6>
+                                  <p class="use-text-paragraph">The works stand out for being an intellectual painter in the creation of the pictorial work from scratch</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon-disable" title="1">star</i></div><strong>$10</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book expanded" style="border: 2px solid #e59546">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #e59546">
+                                  <span>Joy of Cooking</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Joy of Cooking</h6>
+                                  <p class="use-text-paragraph">The famously irreverent chef also offers playful riffs on classics, reimagining tuna-and-rice bowls.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #8f46e5">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #8f46e5">
+                                  <span>Metaverse For Beginners</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Metaverse For Beginners</h6>
+                                  <p class="use-text-paragraph">When people talk about the future, they usually mean virtual reality.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon-disable" title="1">star</i><i class="material-icons star-icon-disable" title="2">star</i></div><strong>$25</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #ac8a55">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #ac8a55">
+                                  <span>Face the Music</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Face the Music</h6>
+                                  <p class="use-text-paragraph">Face the Music is the shocking inspirational story of one of rock’s most enduring icons.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #274be3">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #274be3">
+                                  <span>Key Concepts in Geography</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Key Concepts in Geography</h6>
+                                  <p class="use-text-paragraph">This book clearly outlines key concepts that all geographers should readily be able to explain</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$40</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #6DB4A7">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #6DB4A7">
+                                  <span>On Photography</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">On Photography</h6>
+                                  <p class="use-text-paragraph">Photographs are everywhere and it has profoundly altered our relationship with the world.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="rack mb-10" id="cat3">
+                          <div class="category-title">
+                            <h3><i class="material-icons small">language</i>&nbsp; Lorem Ipsum</h3>
+                            <a class="btn-flat waves-effect primary-text view-all" href="products.html">see all<i class="material-icons icon">arrow_forward</i></a>
+                          </div>
+                          <div class="content">
+                            <div class="book collapsed" style="border: 2px solid #f74e10">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #f74e10">
+                                  <span>Interiors Beyond Architecture</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Interiors Beyond Architecture</h6>
+                                  <p class="use-text-paragraph">The overall premise of the book is to learn Revit Architecture while developing the interior of a two story law office</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #c7618c">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #c7618c">
+                                  <span>Modern Art</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Modern Art</h6>
+                                  <p class="use-text-paragraph">The works stand out for being an intellectual painter in the creation of the pictorial work from scratch</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon-disable" title="1">star</i></div><strong>$10</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #e59546">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #e59546">
+                                  <span>Joy of Cooking</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Joy of Cooking</h6>
+                                  <p class="use-text-paragraph">The famously irreverent chef also offers playful riffs on classics, reimagining tuna-and-rice bowls.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #8f46e5">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #8f46e5">
+                                  <span>Metaverse For Beginners</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Metaverse For Beginners</h6>
+                                  <p class="use-text-paragraph">When people talk about the future, they usually mean virtual reality.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon-disable" title="1">star</i><i class="material-icons star-icon-disable" title="2">star</i></div><strong>$25</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #ac8a55">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #ac8a55">
+                                  <span>Face the Music</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Face the Music</h6>
+                                  <p class="use-text-paragraph">Face the Music is the shocking inspirational story of one of rock’s most enduring icons.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book collapsed" style="border: 2px solid #274be3">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #274be3">
+                                  <span>Key Concepts in Geography</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">Key Concepts in Geography</h6>
+                                  <p class="use-text-paragraph">This book clearly outlines key concepts that all geographers should readily be able to explain</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$40</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book expanded" style="border: 2px solid #6DB4A7">
+                              <figure>
+                                <img src="https://via.placeholder.com/270x320/189a96/FFFFFF" alt="title" />
+                                <figcaption style="background: #6DB4A7">
+                                  <span>On Photography</span>
+                                </figcaption>
+                              </figure>
+                              <div class="desc">
+                                <div class="text">
+                                  <h6 class="title pb-2 text-truncate">On Photography</h6>
+                                  <p class="use-text-paragraph">Photographs are everywhere and it has profoundly altered our relationship with the world.</p>
+                                </div>
+                                <div>
+                                  <div class="property">
+                                    <div class="rating"><i class="material-icons star-icon" title="1">star</i><i class="material-icons star-icon" title="2">star</i><i class="material-icons star-icon" title="3">star</i><i class="material-icons star-icon" title="4">star</i><i class="material-icons star-icon" title="5">star</i></div><strong>$50</strong>
+                                  </div>
+                                  <a class="btn btn-outlined primary button block" href="product-detail.html">see detail</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                --><!-- ##### END EXPLORE #####-->
+
+        <!-- ##### ABOUT #####-->
+        <section class="space-top" id="about">
+            <div class="root">
+                <div class="container fixed-width">
+                    <div class="row">
+                        <div class="col-md-6 illu-wrap">
+                            <div class="wow fadeInLeftShort" data-wow-offset="-100" data-wow-delay="0.2s" data-wow-duration="0.6s">
+                                <div class="illustration">
+                                    <img class="img-2d3d" src="./assets/images/education/about_3d@2x.png" data-2d="./assets" data-3d="./assets/images/education/about_3d@2x.png" alt="about" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-start text-center">
+                                <div class="title-main align-left">
+                                    <h4 class="secondary"><span>O nás</span></h4>
+                                    <p class="desc use-text-subtitle2">Hlavní cíl projektu: vytvořit a výzkumně ověřit online aplikaci jako nástroj pedagogické diagnostiky připravenosti dětí k zahájení povinné školní docházky v kontextu rozvoje profesních kompetencí učitele MŠ. Zkvalitnit přípravu dětí na vstup do školy, a to dětí navštěvující MŠ i dětí v domácím předškolním vzdělávání.</p>
+                                </div>
+{*                                <a class="btn secondary waves-effect" href="#">Zjistit více</a>*}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- ##### END ABOUT #####-->
+
+        <!-- ##### TESTIMONIALS #####-->
+        <section class="space-top" id="testimonials">
+            <div class="root">
+                <div class="title-main align-center">
+                    <h4 class="primary"><span>Řešitelé</span></h4>
+                    <p class="desc use-text-subtitle2">Kdo za tím vším stojí</p>
+                </div>
+                <div class="slider-wrap">
+                    <div class="carousel">
+                        <button class="btn-floating nav prev waves-effect" id="prev_testi">
+                            <i class="ion-ios-arrow-back"></i>
+                        </button>
+                        <div class="slick-carousel" id="testimonial_carousel">
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="icon"><span></span></div>
+                                    <h6>PhDr. Pavlína Částková, Ph.D.</h6>
+                                    <p class="caption">Správkyně systému <br> pavlina.castkova@upol.cz</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="icon"><span></span></div>
+                                    <h6>prof. PhDr. Eva Šmelová, Ph.D.</h6>
+                                    <p class="caption">člen týmu</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="icon"><span></span></div>
+{*                                    <p class="text">Vestibulum sit amet tortor sit amet libero lobortis semper at et odio. In eu tellus tellus. Pellentesque ullamcorper aliquet ultrices. Aenean facilisis vitae purus facilisis semper. Nam vitae scelerisque lorem, quis tempus libero.</p>*}
+                                    <h6>doc. PhDr. Irena Plevová, Ph.D</h6>
+                                    <p class="caption">člen týmu</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="icon"><span></span></div>
+                                    <h6>PhDr. Dominika Provázková Stolinská, Ph.D.</h6>
+                                    <p class="caption">člen týmu</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="icon"><span></span></div>
+                                    <h6>doc. PaedDr. Miluše Rašková, Ph.D.</h6>
+                                    <p class="caption">člen týmu</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="icon"><span></span></div>
+                                    <h6>doc. PhDr. Michaela Prášilová, Ph.D.</h6>
+                                    <p class="caption">člen týmu</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="icon"><span></span></div>
+                                    <h6>doc. PhDr. PaedDr. Jiří Dostál, Ph.D.</h6>
+                                    <p class="caption">člen týmu</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="icon"><span></span></div>
+                                    <h6>Mgr. Alena Vavrdová, Ph.D.</h6>
+                                    <p class="caption">člen týmu</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="icon"><span></span></div>
+                                    <h6>Mgr. Pavla Tresterová</h6>
+                                    <p class="caption">člen týmu</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="icon"><span></span></div>
+                                    <h6>Doc. PhDr. Alena Petrová, Ph.D. (Ostravská univerzita v Ostravě)</h6>
+                                    <p class="caption">člen týmu</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-floating nav next waves-effect" id="next_testi">
+                            <i class="ion-ios-arrow-forward"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ##### END TESTIMONIALS #####-->
+
+        <!-- ##### BLOG #####--> <!--
+                <section class="space-top" id="blog-home">
+                  <div class="root">
+                    <div class="modal video-popup" id="video_modal">
+                      <div class="modal-content">
+                        <div class="headline">
+                          <h4>Home Interior Design - Video Tour</h4>
+                          <button class="btn-icon modal-close waves-effect"><i class="material-icons">close</i></button>
+                        </div>
+                        <div class="text-center">
+                          <div id="video_blog_iframe"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hidden-sm-down">
+                      <div class="deco"></div>
+                    </div>
+                    <div class="container fixed-width">
+                      <div class="px-md-12 pa-2">
+                        <div class="title-main align-left">
+                          <h4 class="secondary"><span>What's update?</span></h4>
+                          <p class="desc use-text-subtitle2">Up-to-the-minute news, breaking news, video, audio and feature stories</p>
+                        </div>
+                      </div>
+                      <div class="row flex-sm-row-reverse">
+                        <div class="col-md-6 pa-md-8 pa-0">
+                          <div class="video-wrap">
+                            <div class="video-carousel">
+                              <div class="card item">
+                                <img src="https://via.placeholder.com/700x462/8e8e8e/FFFFFF" alt="cover" />
+                                <button class="btn play-btn waves-effect modal-trigger" data-target="video_modal">
+                                  <i class="icon material-icons">play_arrow</i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 pa-md-8 pa-2">
+                          <div class="blog-list">
+                            <div class="wow fadeInLeftShort" data-wow-offset="-200" data-wow-delay="0s" data-wow-duration="0.6s">
+                              <div class="blog-card">
+                                <div class="text">
+                                  <a class="btn-flat" href="#"><span>Science - Math</span></a>
+                                  <h4>
+                                    <a class="btn-flat waves-effect" href="#">Vestibulum vitae tristique urna. Mauris non cursus quam</a>
+                                  </h4>
+                                </div>
+                                <div class="date">
+                                  <h3>Feb</h3>
+                                  <h2>08</h2>
+                                  <h4>2022</h4>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="wow fadeInLeftShort" data-wow-offset="-200" data-wow-delay="0.2s" data-wow-duration="0.6s">
+                              <div class="blog-card">
+                                <div class="text">
+                                  <a class="btn-flat" href="#"><span>Science - Math</span></a>
+                                  <h4>
+                                    <a class="btn-flat waves-effect" href="#">Vestibulum vitae tristique urna. Mauris non cursus quam</a>
+                                  </h4>
+                                </div>
+                                <div class="date">
+                                  <h3>Feb</h3>
+                                  <h2>08</h2>
+                                  <h4>2022</h4>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="wow fadeInLeftShort" data-wow-offset="-200" data-wow-delay="0.4s" data-wow-duration="0.6s">
+                              <div class="blog-card">
+                                <div class="text">
+                                  <a class="btn-flat" href="#"><span>Science - Math</span></a>
+                                  <h4>
+                                    <a class="btn-flat waves-effect" href="#">Vestibulum vitae tristique urna. Mauris non cursus quam</a>
+                                  </h4>
+                                </div>
+                                <div class="date">
+                                  <h3>Feb</h3>
+                                  <h2>08</h2>
+                                  <h4>2022</h4>
+                                </div>
+                              </div>
+                            </div>
+                            <a class="more secondary-text btn-flat waves-effect">more</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                --> <!-- ##### END BLOG #####-->
+
+    </main>
+    {*
+    <div class="kt-sc" style="background-image: url('/images/bg.png')">
+        <div class="kt-container ">
+            <div class="kt-sc__top">
+                <h3 class="kt-sc__title">
+                    Help Center
+                </h3>
+                <div class="kt-sc__nav">
+                    <a href="#" class="kt-link kt-font-bold">Community</a>
+                    <a href="#" class="kt-link kt-font-bold">Visit Blog</a>
+                </div>
+            </div>
+            <div class="kt-sc__bottom">
+                <h3 class="kt-sc__heading kt-heading kt-heading--center kt-heading--xxl kt-heading--medium">
+                    Online aplikace pedagogické diagnostiky a intervence v práci učitele MŠ s akcentem na školní připravenost
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="kt-container ">
+
+        <div class="kt-portlet">
+            <div class="kt-portlet__body">
+                <div class="kt-infobox">
+                    <div class="kt-infobox__body">
+                        <div class="kt-infobox__section">
+                            <div class="kt-infobox__content">
+                                <div class="text-center">
+                                    <img src="/images/logo-tacr.png" alt="TAČR" style="max-width: 80px;">
+                                    Tento projekt je spolufinancován se státní podporou Technologické agentury ČR v rámci Programu ÉTA 2
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="kt-portlet">
+            <div class="kt-portlet__body">
+                <div class="kt-infobox">
+                    <div class="kt-infobox__header">
+                        <h2 class="kt-infobox__title">Základní informace</h2>
+                    </div>
+                    <div class="kt-infobox__body">
+                        <div class="kt-infobox__section">
+                            <div class="kt-infobox__content">
+                                <br>
+                                <h5>NÁZEV PROJEKTU: Online aplikace jako nástroj pedagogické diagnostiky a intervence v práci učitele mateřské školy s akcentem na školní připravenost</h5>
+                                <hr>
+                                <h6>ČÍSLO PROJEKTU: TL02000346</h6>
+                                <h6>PROGRAM: Program na podporu aplikovaného společenskovědního a humanitního výzkumu, experimentálního vývoje a inovací ÉTA</h6>
+                                <h6>VEŘEJNÁ SOUTĚŽ: STA02018TL020 - ETA 2</h6>
+                                <h6>DOBA ŘEŠENÍ: 1. 12. 2018 — 31. 5. 2021</h6>
+                            </div>
+
+                            <p><br>Hlavní cíl projektu: vytvořit a výzkumně ověřit online aplikaci jako nástroj pedagogické diagnostiky připravenosti dětí k zahájení povinné školní docházky v kontextu rozvoje profesních kompetencí učitele MŠ. Zkvalitnit přípravu dětí na vstup do školy, a to dětí navštěvující MŠ i dětí v domácím předškolním vzdělávání. Přispět k zavádění moderních technologií do práce učitele MŠ. Výstup projektu: výzkumně ověřený nástroj pedagogické diagnostiky školní připravenosti v podobě online aplikace. Produkt a je originálem.
+                                Projekt směřuje k formulaci doposud nevyužitých závěrů vztahujících se k přípravě dětí k zahájení povinné školní docházky.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="kt-portlet kt-callout">
+                <div class="kt-portlet__body">
+                    <div class="kt-callout__body">
+                        <div class="kt-callout__content">
+                            <h3 class="kt-callout__title">Řešitelé projektu</h3>
+                            <p class="kt-callout__desc">
+                            Hlavní účastníci: Univerzita Palackého v Olomouci/Pedagogická fakulta
+                            </p>
+
+                            <h6>Řešitelský tým:</h6>
+                            <ul>
+                                <li>prof. PhDr. Eva Šmelová, Ph.D.</li>
+                                <li>doc. PhDr. Irena Plevová, Ph.D.</li>
+                                <li>PhDr. Dominika Provázková Stolinská, Ph.D.</li>
+                                <li>doc. PaedDr. Miluše Rašková, Ph.D.</li>
+                                <li>doc. PhDr. Michaela Prášilová, Ph.D.</li>
+                                <li>doc. PhDr. PaedDr. Jiří Dostál, Ph.D.</li>
+                                <li>PhDr. Pavlína Částková, Ph.D.</li>
+                                <li>Mgr. Alena Vavrdová, Ph.D.</li>
+                                <li>Mgr. Pavla Tresterová</li>
+                                <li>Doc. PhDr. Alena Petrová, Ph.D. (Ostravská univerzita v Ostravě)</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="kt-portlet kt-callout">
+                <div class="kt-portlet__body">
+                    <div class="kt-callout__body">
+                        <div class="kt-callout__content">
+                            <h3 class="kt-callout__title">Správkyně systému</h3>
+                            <hr>
+                            <b>PhDr. Pavlína Částková, Ph.D.</b> <br>
+                                <span class="kt-widget17__icon">
+																<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="72px" height="72px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-svg-icon--warning">
+																	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																		<rect id="bound" x="0" y="0" width="72" height="72"></rect>
+																		<path d="M12.7037037,14 L15.6666667,10 L13.4444444,10 L13.4444444,6 L9,12 L11.2222222,12 L11.2222222,14 L6,14 C5.44771525,14 5,13.5522847 5,13 L5,3 C5,2.44771525 5.44771525,2 6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,13 C19,13.5522847 18.5522847,14 18,14 L12.7037037,14 Z" id="Combined-Shape" fill="#000000" opacity="0.3"></path>
+																		<path d="M9.80428954,10.9142091 L9,12 L11.2222222,12 L11.2222222,16 L15.6666667,10 L15.4615385,10 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 L9.80428954,10.9142091 Z" id="Combined-Shape" fill="#000000"></path>
+																	</g>
+																</svg> </span>
+
+                                pavlina.castkova@upol.cz
+
+                        </div>
+                        <div class="kt-callout__action">
+                            <a href="#" data-toggle="modal" data-target="#kt_chat_modal" class="btn btn-custom btn-bold btn-upper btn-font-sm  btn-success">Start Chat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    *}
+{/block}
+
+{block script}
+{/block}
+
+
+
+

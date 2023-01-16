@@ -1,0 +1,18 @@
+{**
+ * Error - template zobrazení chybové stránky
+ * @author     Ondra310
+ * @package    vapolDPrice
+ * @copyright (c) 11/2012, Ondra310
+ *
+ * @param boolean $robots - zakážu indexování roboty
+ *}
+
+{var $robots = false}
+
+{block #content}
+
+<h1>{_"*Metoda není povolena"}</h1>
+
+<p>{_"*Požadovaná metoda není povolena pro tuto URL adresu."}</p>
+
+<p><small>{_"*chyba"} 405</small></p>

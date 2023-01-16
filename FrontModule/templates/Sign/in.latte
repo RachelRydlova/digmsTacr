@@ -1,0 +1,139 @@
+
+{block edaText}Pro další práci v aplikaci se musíš nejprve přihlásit, popřípadě zaregistrovat.{/block}
+
+{block content}
+
+    <!-- ##### FORM #####-->
+    <div class="container-general container-front">
+        <div class="form-style">
+            <div class="page-wrap">
+                <div class="container inner-wrap">
+                    <div class="auth-frame">
+                        <div class="row mb-0">
+                            <div class="col-md-6 px-lg-6 px-2">
+                                <div class="card form-box fragment-fadeUp">
+                                    <div class="form-wrap">
+                                        <div class="form-style">
+                                            <div class="head">
+                                                <h4 class="use-text-title mq-md-up use-text-primary" data-class="use-text-subtitle">edigUP</h4>
+                                            </div>
+                                            {*                                                        <div class="socmed-side-login">*}
+{*                                                            <button class="btn navi-btn waves-effect"><i class="ion-social-facebook left"></i>Facebook</button>*}
+{*                                                            <button class="btn blue-btn waves-effect"><i class="ion-social-twitter left"></i>Twitter</button>*}
+{*                                                            <button class="btn red-btn waves-effect"><i class="ion-social-google left"></i>Google</button>*}
+{*                                                        </div>*}
+                                                        <div class="separator">
+                                                    <p>přihlášení do systému</p>
+                                                        </div>
+
+                                                {form signInForm}
+                                                    {if $form->hasErrors()}
+                                                        <div class="alert alert-danger">
+                                                            {$form->render('errors')}
+                                                        </div>
+                                                    {/if}
+{*                                                <form id="login_form">*}
+                                                    <div class="row spacing3 mb-0">
+                                                        <div class="col-sm-12">
+                                                            <div class="input-field dark">
+                                                                <label for="email">uživatelské jméno</label>
+                                                                <input class="validate" id="email" type="email" n:name="username" required />
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="input-field dark">
+                                                                <input class="validate" id="password" type="password" n:name="password" required />
+                                                                <label for="password">heslo</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-helper mt-sm-4">
+                                                        <div class="form-control-label">
+                                                            <label>
+                                                                <input class="filled-in secondary" type="checkbox" name="remember" value="1" />
+                                                                <span>Zapamatovat</span>
+                                                            </label>
+                                                        </div>
+                                                        <a class="btn-flat button-link" n:href="recoverPassword">Zapomenuté heslo?</a>
+                                                    </div>
+                                                    <div class="btn-area">
+                                                        <button class="btn primary btn-large block waves-effect" type="submit">
+                                                            Přihlásit se
+                                                            {input submit}
+                                                        </button>
+                                                    </div>
+{*                                                </form>*}
+                                            {/form}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="hidden-sm-down">
+                                    <div class="greeting pt-0">
+                                        <div class="img">
+                                        <h6 class="use-text-title2 use-text-primary">Pro jakoukoliv akci v systému edigUP je nutné se nejprve přihlásit.</h6>
+                                            <img class="img-2d3d" src="{$basePath}/assets/images/skolacek/edigup-skolacek-eda-kniha.png" data-2d="{$basePath}/assets/skolacek/edigup-skolacek-eda-kniha.png" alt="login" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### END FORM #####-->
+
+{*    <div class="kt-login__head">*}
+{*        <h3 class="kt-login__title">DIGMS - Přihlášení do systému</h3>*}
+{*    </div>*}
+
+{*{form signInForm}*}
+{*    {if $form->hasErrors()}*}
+{*    <div class="alert alert-danger">*}
+{*        {$form->render('errors')}*}
+{*    </div>*}
+{*    {/if}*}
+{*    <div class="form-group">*}
+{*        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->*}
+{*        <label class="control-label visible-ie8 visible-ie9">Login</label>*}
+{*        <div class="input-icon">*}
+{*            <i class="fa fa-user"></i>*}
+{*            {input username class=>'form-control placeholder-no-fix'}*}
+{*        </div>*}
+{*    </div>*}
+{*    <div class="form-group">*}
+{*        <label class="control-label visible-ie8 visible-ie9">Heslo</label>*}
+{*        <div class="input-icon">*}
+{*            <i class="fa fa-lock"></i>*}
+{*            {input password class=>'form-control placeholder-no-fix'}*}
+{*        </div>*}
+{*    </div>*}
+{*    <div class="form-actions">*}
+{*        <label class="rememberme mt-checkbox mt-checkbox-outline">*}
+{*            <input type="checkbox" name="remember" value="1" /> Zapamatovat*}
+{*            <span></span>*}
+{*        </label>*}
+{*    </div>*}
+{*    <br>*}
+{*    {input submit class=>'btn btn-primary btn-wide'}*}
+{*{/form}*}
+
+{*        <br>*}
+{*        <small>*}
+{*            <a n:href="recoverPassword" title="Zapomenuté heslo">*}
+{*                <i class="fa fa-refresh"></i> Zapomenuté heslo?*}
+{*            </a>*}
+{*            |*}
+{*            <a n:href="Sign:up" title="Regitrace do systému">*}
+{*                <i class="fa fa-key"></i> Zaregistrovat se do systému*}
+{*            </a>*}
+{*        </small>*}
+
+
+
+{/block}
+

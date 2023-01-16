@@ -1,0 +1,19 @@
+{**
+ * Error - template zobrazení chybové stránky
+ * @author     Ondra310
+ * @package    vapolDPrice
+ * @copyright (c) 11/2012, Ondra310
+ *
+ * @param boolean $robots - zakážu indexování roboty
+ *}
+
+{var $robots = false}
+
+{block #content}
+
+<h1>{_"*Stránka nenalezena"}</h1>
+
+<p>{_"*Vámi požadovaná stránka nebyla nalezena."} {_"*Je možné, že je špatně zadaná adresa stránky, 
+    nebo tato stránka již neexistuje."} {_"*Prosím, použijte vyhledávač k nalezení stránky kterou hledáte."}</p>
+
+<p><small>{_"*chyba"} 404</small></p>

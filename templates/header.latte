@@ -1,0 +1,156 @@
+<!-- #### HEADER ####-->
+<div class="sidenav mobile-nav" id="slide_menu">
+    <div class="side-multilv">
+        <div class="collection side-multilv">
+            <ul class="collapsible expandable">
+                <li class="collection-item"><a class="sidenav-close waves-effect menu-list" href="#about">O projektu</a></li>
+                <li class="collection-item"><a class="sidenav-close waves-effect menu-list" n:href=":Ev:Dashboard:manager" >{if $user->isInRole('admin')}Mateřské školy{else}Mateřská škola{/if}</a></li>
+                <li class="collection-item group-child has-child">
+                    <div class="collapsible-header">
+                        <a class="waves-effect text-truncate menu-list" href="#!">
+                            Odkazy
+                            <i class="material-icons right">keyboard_arrow_down</i>
+                        </a>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="collection side-group">
+                            <ul class="group-child">
+                                <li class="collection-header">
+                                    <div class="title-mega">TAČR</div>
+                                </li>
+                                <li class="collection-item side-group-link">
+                                    <a class="waves-effect text-truncate menu-list" href="#about">O projektu</a>
+                                </li>
+                                <li class="collection-item side-group-link">
+                                    <a class="waves-effect text-truncate menu-list" href="#testimonials">Řešitelé</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="collection">
+            <ul>
+                <li class="collection-item">
+                    <a class="sidenav-close waves-effect menu-list" n:href=":Front:Sign:in">Přihlásit se</a>
+                </li>
+                <li class="collection-item">
+                    <a class="sidenav-close waves-effect menu-list" n:href=":Front:Sign:up">Registrovat</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<header class="app-bar header" id="header">
+    <div class="container">
+        <div class="header-content">
+            <nav class="nav-menu">
+                <button class="btn-icon waves-effect sidenav-trigger hamburger hamburger--spin show-md-down" id="mobile_menu" type="button" data-target="slide_menu"><span class="hamburger-box"><span class="bar hamburger-inner"></span></span></button>
+                <div class="logo">
+                    <a n:href=":Front:Default:" class="logo-main landscape medium">
+                        <img src="{$basePath}/assets/images/logo-education.png" alt="logo"/>
+                        <span class="">EdigUP</span>
+                    </a>
+                </div>
+                <div class="scrollactive-nav scrollnav show-lg-up multi-menu">
+                    <ul class="main-menu">
+                        {if $user->isLoggedIn()}
+                            <li>
+                                <a class="btn btn-flat anchor-link waves-effect" href="#about">O projektu</a>
+                            </li>
+                            <li>
+                                <a class="btn btn-flat anchor-link waves-effect" n:href=":Ev:Dashboard:manager" >
+                                    {if $user->isInRole('admin')}Mateřské školy{else}Mateřská škola{/if}</a>
+                            </li>
+                            <li>
+                                <button class="btn btn-flat megamenu-trigger-click waves-effect" data-target="sample-page">
+                                    Odkazy
+                                    <i class="material-icons right icon">keyboard_arrow_down</i>
+                                </button>
+                                <div class="mega-menu-root dropdown-content" id="sample-page">
+                                    <div class="mega-menu">
+                                        <div class="container max-md">
+                                            <div class="row">
+                                                <div class="col-sm-8 mb-6">
+                                                    <div class="title-mega">Odkazy</div>
+                                                    <img class="thumb-menu" src="{$basePath}/assets/images/education/menu_marketing@2x.jpg" alt="thumbnail" />
+                                                    <ul>
+                                                        <li class="waves-effect"><a class="menu-list" href="https://www.tacr.cz/">Technologická agentura ČR</a></li>
+                                                        <li class="waves-effect"><a class="menu-list" href="https://www.pdf.upol.cz/">Pedagogická fakulta UP</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {/if}
+                    </ul>
+                </div>
+                <!-- #### LOGIN ####-->
+                <nav class="user-menu">
+                    {if !$user->isLoggedIn()}
+                        <a class="btn btn-flat waves-effect show-sm-up" n:href=":Front:Sign:in">Přihlásit</a>
+                        <a class="btn waves-effect primary show-sm-up" n:href=":Front:Sign:up">Registrovat</a>
+                    {else}
+                        <div>
+                            <span>Ahoj,</span>
+                            <span>{$user->getIdentity()->name}</span>
+                            <span><b>{substr($user->getIdentity()->surname, 0, 1)}</b></span>
+                        </div>
+                    {/if}
+
+                    <span class="spacer vertical-divider show-lg-up"></span>
+                    <div class="menu-setting">
+                        <div class="setting">
+                            <button class="btn btn-icon waves-effect btn-small dropdown-trigger ma-1" data-target="dropdown_config" data-align="left" type="button">
+                                <i class="icon material-icons" id="setting_icon">settings</i>
+                            </button>
+                            <div class="dropdown-content setting" id="dropdown_config">
+                                <ul class="collection with-header">
+{*                                    {if !$user->isLoggedIn()}*}
+{*                                        <li class="collection-header">Téma stránky</li>*}
+                                        <li class="collection-item no-hover pl-4">
+                                            <small>Téma stránky</small>
+                                            <div class="flex-menu">
+                                                <div class="switch">
+                                                    <label>
+                                                        světlý
+                                                        <input id="theme_switcher" type="checkbox"><span class="lever"></span>
+                                                        tmavý
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </li>
+{*                                    {else}*}
+
+                                        <li class="collection-item no-hover pl-4">
+                                            <div class="book" style="height: 200px">
+                                                <figure style="height: 11.5em; width: 9em">
+                                                    <img alt="{$user->getIdentity()->name} {$user->getIdentity()->surname}" style="width: 144px" src="{$basePath}/old-assets/media/users/300_25.jpg" />
+                                                </figure>
+                                            </div>
+                                            <h5 class="text-center py-6">{$user->getIdentity()->name} {$user->getIdentity()->surname}</h5>
+                                            <a href="{plink :Ev:Profil:}" class="btn btn-small btn-outline-dark waves-effect text-dark">
+                                                <small>Můj profil</small>
+                                            </a>
+                                            <hr>
+                                            <a href="{plink :Front:Sign:out}" class="btn btn-small waves-effect red">
+                                                <small>Odhlásit se</small>
+                                            </a>
+                                        </li>
+{*                                    {/if}*}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </nav>
+            <div id="container_menu"></div>
+        </div>
+    </div>
+</header>
+<!-- #### END HEADER ####-->

@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Nový komentář k hodnocení</title>
+    <style>
+    </style>
+</head>
+<body>
+<p>Dobrý den,</p>
+
+<p>k hodnocení obsahu na portálu <b>PRIM</b> byl vložen nový komentář.</p><br>
+
+<p> Sekce: {$section->section_name}<br>
+    Obsah: {$evMeta->getMaterialRel()->description}<br>
+    Vložil: {$message->getUser()->getFullName()}
+</p>
+
+<h3>Text komentáře:</h3>
+<p>{$message->message_content}</p>
+
+<hr>
+
+<p>Přihlásit se do aplikace a reagovat na tento komentář můžete na
+    <a href="{$backlink}">odkazu</a>.</p>
+
+<p>Mějte hezký den...</p>
+
+</body>
+</html>

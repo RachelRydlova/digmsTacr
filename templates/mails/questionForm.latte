@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Informace z portálu DIGMS</title>
+    <style>
+        body {
+            font-family: Arial;
+            color: #75757a;
+        }
+
+        .msg {
+            background: #edeff3;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        h2 {
+            color: #fff;
+            background: #2b81af;
+            display: block;
+            padding:10px 5px;
+            margin-bottom: 15px;
+            font-weight: normal;
+            font-size: 18px;
+        }
+
+        hr {
+            height: 1px;
+            border-top: 1px solid #e1e4e9;
+        }
+    </style>
+</head>
+<body>
+<h1>Dobrý den,</h1>
+<h2>zpráva níže obsahuje dotaz k Vašemu materiálu pro rodiče</h2>
+<p><b>Materiál:</b> {$material}</p>
+<p><b>Odesílatel:</b> {$sender} - <b>email pro Vaši odpověď</b>: <a href="mailto:{$email}">{$email}</a> </p>
+<br>
+<div class="msg">
+    {$msg|noescape}
+</div>
+
+<br><br>
+<hr>
+<small>Tato zpráva je zaslána z portálu: <a href="{$link}">{$link}</a></small>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
+Version: 4.6
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="{$language}">
+
+<head>
+
+    <!-- NEW EDU THEME LAYOUT STYLES -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"><!-- Facebook-->
+    <link href="{$basePath}/assets/css/vendors/normalize.css" rel="stylesheet">
+    <link href="{$basePath}/assets/css/vendors/bootstrap.css" rel="stylesheet">
+    <link href="{$basePath}/assets/css/vendors/magnific-popup.css" rel="stylesheet">
+    <link href="{$basePath}/assets/css/vendors/materialize.css" rel="stylesheet">
+    <link href="{$basePath}/assets/css/vendors/hamburger-menu.css" rel="stylesheet">
+    <link href="{$basePath}/assets/css/vendors/animate.css" rel="stylesheet">
+    <link href="{$basePath}/assets/css/vendors/animate-extends.css" rel="stylesheet">
+    <link href="{$basePath}/assets/css/vendors/slick-carousel/slick.css" rel="stylesheet">
+    <link href="{$basePath}/assets/css/vendors/slick-carousel/slick-theme.css" rel="stylesheet">
+    <link href="{$basePath}/assets/css/styles.css" rel="stylesheet">
+
+
+    {block head}{/block}
+</head>
+
+<body>
+    <div id="preloader" style="position: fixed; z-index: 10000; background: #fafafa; width: 100%; height: 100%"><img style="opacity: 0.2; position: fixed; top: calc(50% - 50px); left: calc(50% - 50px)" src="{$basePath}/assets/images/loading.gif" alt="loading"></div>
+    <div class="m-application theme--light transition-page" id="app">
+        <div class="loading"></div>
+        <div class="m-content smart smart-var" id="main-wrap">
+            <div id="home">
+                <div class="main-wrap">
+
+
+                    {include 'header.latte'}
+
+                    <div id="infoSkolacek" class="position-fixed" style="z-index: 1000; width: 100%; top: 70vh">
+                        <a href="javascript:;" class="d-flex justify-content-end">
+                            <p class="thought"> {block edaText}{/block}</p>
+                            <figure>
+                                <img src="{$basePath}/images/skolacek/edigup-skolacek-eda-aktovka-vlevo.png" alt="vyber skoly jak na to">
+                            </figure>
+                        </a>
+                    </div>
+
+                    {block content} {/block}
+
+                    {include 'footer.latte'}
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/old-assets/vendors/general/toastr/build/toastr.min.js"></script>
+
+<script src="{$basePath}/assets/js/vendors/jquery.min.js"></script>
+<script src="{$basePath}/assets/js/vendors/bootstrap.min.js"></script>
+<script src="{$basePath}/assets/js/vendors/enquire.min.js"></script>
+<script src="{$basePath}/assets/js/vendors/jquery.form-validator.min.js"></script>
+<script src="{$basePath}/assets/js/vendors/jquery.touchSwipe.min.js"></script>
+<script src="{$basePath}/assets/js/vendors/jquery.magnific-popup.min.js"></script>
+<script src="{$basePath}/assets/js/vendors/pace.min.js"></script>
+<script src="{$basePath}/assets/js/vendors/slick.min.js"></script>
+<script src="{$basePath}/assets/js/vendors/wow.min.js"></script>
+<script src="{$basePath}/assets/js/vendors/jquery.navScroll.min.js"></script><!-- This assets are not avalaible in npm.js or it has been costumized-->
+<script src="{$basePath}/assets/js/vendors/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<script src="{$basePath}/assets/js/vendors/materialize.js"></script>
+<script src="{$basePath}/old-assets/vendors/general/toastr/build/toastr.min.js"></script>
+<script src="{$basePath}/old-assets/vendors/general/js-cookie/src/js.cookie.js"></script>
+<script src="{$basePath}/assets/js/scripts.js"></script>
+<script src="{$basePath}/js/main.js"></script>
+<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+
+
+    {snippet flashes}
+        {if isset($flashes)}
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "positionClass": "toast-top-center",
+                    "onclick": null,
+                    "showDuration": "1000",
+                    "hideDuration": "1000",
+                    "timeOut": "10000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                {foreach $flashes as $flash}
+                toastr.{$flash->type|noescape}({$flash->message});
+                {/foreach}
+            </script>
+        {/if}
+    {/snippet}
+
+    {block script}{/block}
+</body>
+</html>
